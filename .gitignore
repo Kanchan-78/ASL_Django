@@ -1,0 +1,54 @@
+# -------- Python --------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.sqlite3
+*.db
+*.log
+
+# -------- Virtual Environment --------
+venv/
+env/
+ENV/
+.venv/
+
+# -------- Django --------
+# Static & media
+/media/
+
+# Local settings
+*.local
+.env
+*.env
+
+# Django migrations cache
+**/migrations/**/__pycache__/
+**/migrations/**/0*.py
+
+# -------- IDEs & Editors --------
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# -------- OS files --------
+.DS_Store
+Thumbs.db
+
+# -------- Node / Frontend (if used) --------
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# -------- Compiled files --------
+*.mo
+*.pot
+
+# -------- Others --------
+*.bak
+*.swp
+*.tmp

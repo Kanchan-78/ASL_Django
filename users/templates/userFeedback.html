@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+  User Feedback
+{% endblock title %}
+
+{% block extra-link %}
+  <link type="text/css" href="{% static 'css/feedback.css' %}" rel="stylesheet" />
+{% endblock extra-link %}
+
+{% block content %}
+  <h1 class="text-center mb-4 feedback-header">User Feedback</h1>
+  <!-- <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      {% for i in data  %}     
+      <div class="carousel-item active d-block w-100">
+        <div class="feedback-content">
+          <span class="username">{{i.name}}</span>
+          <p class="message">{{i.message}}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div> -->
+  <!-- carousel end -->
+
+  {% for i in data %}
+    <div class="container mt-5">
+      <!-- Feedback List -->    
+      <div class="feedback-list">
+        <!-- Feedback Item -->
+        <div class="feedback-card">
+          <div class="feedback-content">
+            <span class="username">{{i.name}}</span>
+            <p class="message">{{i.message}}</p>
+          </div>
+          <!-- button trigger--> 
+          <button class="delete-btn"data-bs-toggle="modal" data-bs-target="#{{i.id}}">
+            <i class="fas fa-trash-alt"></i> Delete</button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="{{i.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Feedback</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="{% url 'delete_user' i.id %}">
+                    <div class="modal-body">
+                        Do you want to delete {{i.name}} 's feedback ?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary"> Delete </button>
+                    </div>
+                </form>
+            </div>
+            </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+
+{% endblock content %}

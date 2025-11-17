@@ -1,0 +1,61 @@
+body {
+  background:linear-gradient(to right, #030F12,#03181b);
+  color: white;
+  }
+
+h1{
+  padding-top: 100px;
+  font-family: 'Arial', sans-serif; /* Example font */
+  color: #FFFFFF; /* Adjust based on your background */
+  font-size: 48px; /* Example size, adjust as needed */
+  font-weight: bold;
+  text-shadow: 2px 2px 4px #000000; /* Black shadow for depth, adjust as needed */
+  letter-spacing: 1px; /* Adjust as needed */
+  text-align: center; /* Center the title */
+  margin-top: 50px; /* Adjust based on your layout */
+}
+  .feedback-header
+  {
+    color: #fff;
+  }
+  .feedback-card {
+    margin-bottom: 15px;
+    border-left: 5px solid #007bff;
+    padding: 15px;
+    border-radius: 5px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .feedback-content {
+    flex-grow: 1;
+  }
+
+  .username {
+    font-weight: bold;
+    color: #007bff;
+  }
+
+  .message {
+    margin: 0;
+    color: #555;
+  }
+
+  .delete-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .delete-btn:hover {
+    background: #c82333;
+  }
+
+  .delete-btn i {
+    margin-right: 5px;
+  }

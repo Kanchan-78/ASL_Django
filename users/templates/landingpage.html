@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+  FERS.io - Homepage
+{% endblock title %}
+{% block extra-link %}
+
+{% endblock extra-link %}
+{% block content %}
+  <main class="pt-5">
+    <div class="container-fluid">
+      <section id="main" class="cover-sect d-flex align-items-center justify-content-center text-center">
+        {% if user.is_authenticated %}
+        {% if messages %}
+        {% for  message in messages %}
+        <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+        {{message}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% else %}
+
+        {% if messages %}
+        {% for  message in messages %}
+        <div class="alert alert-{{message.tags}} alert-danger fade show" role="alert">
+        {{message}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endif %}
+        <div class="box-feature">
+          <img class="cover-image" src="{% static 'images/main.webp' %}" alt="Description of the image"/>
+         </div>
+        <div class="title-text">
+          <h1>FERS</h1>
+          <p>~<span class="highlight">EMOTION</span> DETECTION USING CNN FOR SONG MAPPING~</p>
+        </div>
+      </section>
+
+
+
+      <!--    description  ........ -->
+      <section id="story" class="story-sect py-5">
+        <div class="box-feature-img2">
+          <img src="{% static 'images/E1.webp' %}" />
+          </div>
+        <div class="section-text">
+          <h2>Description</h2>
+          <p>This system incorporates computer vision techniques, including Convolutional Neural Networks (CNNs), For identifying emotions such as <span class="highlight" style="text-transform: uppercase;">Neutral, Happy, sad,</span> and <span class="highlight"style="text-transform: uppercase;">angry</span> by focusing on the dynamic changes in facial muscles. The features extracted from the song align with comparable emotions and are used to suggest songs corresponding to the person's current mood. Leveraging a large musical library, the system selects rule-based method that match the identified emotions.</p>
+        </div>
+      </section>
+
+      <!--   about us    ........ -->
+      <section id="designs" class="samples">
+        <div class="section-text">
+          <h2>Developers</h2>
+          <p>Developers are digital architects, turning ideas into reality with code, creativity, and relentless problem-solving</p>
+        </div>
+        <div class="container-fluid featured">
+            <div class="cont">
+              <figure>
+                <img src="{% static 'images/feerose.jpg' %}" height="350" width="260"alt="Fee Rose">
+                <h1 style="font-family: 'Arial', sans-serif; font-size: 20px;">Firoj Raut</h1>
+                <p>Backend Developer</p>
+              </figure>
+            </div>
+            <div class="cont">
+              <figure>
+                <img src="{% static 'images/yubraj.jpg' %}" height="350" width="260" alt="Yubraj">
+                <h1 style=" font-family: 'Arial', sans-serif; font-size: 20px;">Yubraj Shrestha</h1>
+                 <p> Model Designer</p>
+              </figure>
+            </div>
+
+            <div class="cont">
+              <figure>
+                <img src="{% static 'images/melan.jpg' %}" height="350" width="260"alt="Melan">
+                <h1 style="font-family: 'Arial', sans-serif; font-size: 20px;">Milan Rajbanshi</h1>
+                <p>UI Designer</p>
+              </figure>
+            </div>
+        </div>
+      </section>
+
+
+      <!--   contact section   ........ -->
+      <section id="contact" class="contact-section py-5 mb-3">
+        <div class="section-text">
+          <h2>Share your views</h2>
+          <p>We would love to hear from you! <br><br>If you would like to send us feedbacks by filling in the form with your name and email address</p>
+        </div>
+        <div class="contact-info">
+          <div class="form-box">
+            <form id="form" class="contact-form" action="{% url 'home' %}" method="post">
+              {% csrf_token %}
+              <label for="name" class="form-entry">Name <br>
+                <input name="name" id="name" type="text" class="txt-box" placeholder="&nbsp&nbsp;Enter name" required><br>
+              </label>
+              <label for="email" class="form-entry">Email <br>
+                <input name="email" id="email" type="email" class="txt-box" placeholder="&nbsp&nbsp;Enter email" required><br>
+              </label>
+              <label for="message" class="form-entry">Message<br>
+                <textarea name="message" id="message" type="textarea" class="txt-box" placeholder="&nbsp;Optional"></textarea><br>
+              </label><br>
+              <input class="btn" id="submit" type="submit" value="Submit">
+            </form>
+          </div>
+        </div>
+
+      </section>
+    </div>
+  </main>
+{% endblock content %}
